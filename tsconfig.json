@@ -19,10 +19,12 @@
       "@api/*": ["api/*"],
       "@assets/*": ["assets/*"],
       "@components/*": ["components/*"],
+      "@config/*": ["config/*"],
+      "@container/*": ["container/*"],
       "@domain/*": ["domain/*"],
       "@pages/*": ["pages/*"],
       "@redux/*": ["redux/*"],
-      "@container/*": ["container/*"]
+      "@styles/*": ["styles/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
