@@ -7,7 +7,7 @@ import '@styles/globals.css';
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Provider store={store}>
-      <MainLayout>
+      <MainLayout className="bg-black">
         <Component {...pageProps} />
       </MainLayout>
     </Provider>
