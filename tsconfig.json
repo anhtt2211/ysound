@@ -24,9 +24,11 @@
       "@domain/*": ["domain/*"],
       "@pages/*": ["pages/*"],
       "@redux/*": ["redux/*"],
-      "@styles/*": ["styles/*"]
+      "@styles/*": ["styles/*"],
+      "@data/*": ["data/*"],
+      "@app/*": ["app/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "app/app-provider.tss"],
   "exclude": ["node_modules"]
 }

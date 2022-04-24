@@ -42,7 +42,13 @@ export const Content = () => {
       <section
         className={`flex items-end space-x-7 bg-gradient-to-b to-black ${color} h-80 text-white p-8 w-full`}
       >
-        <Image src={imgPlayList} alt="" width={232} height={232} />
+        <Image
+          src={imgPlayList}
+          alt=""
+          width={232}
+          height={232}
+          objectFit="cover"
+        />
         <div>
           <p>PLAYLIST</p>
           <h1 className="text-2xl md:text-3xl xl:text-5xl font-bold">

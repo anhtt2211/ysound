@@ -1,8 +1,4 @@
-import Image from 'next/image';
-import React, { useState } from 'react';
-// import AudioPlayer from 'react-h5-audio-player';
-import AudioPlayer from 'react-h5-audio-player';
-import 'react-h5-audio-player/lib/styles.css';
+import { useAppContext } from '@app/app-context';
 import imgPlayList from '@assets/images/img-playList.jpg';
 import {
   FastForwardIcon,
@@ -14,27 +10,68 @@ import {
   VolumeOffIcon,
   VolumeUpIcon,
 } from '@heroicons/react/outline';
+import { BiShuffle } from 'react-icons/bi';
+import React, { useEffect, useRef, useState } from 'react';
 
 export const Audio = () => {
-  const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [volumn, setVolumn] = useState<number>(50);
+  const audio = useRef<HTMLAudioElement>();
+  const {
+    currentSong,
+    isPlaying,
+    isShuffle,
+    setIsShuffle,
+    setIsPlaying,
+    nextSong,
+    prevSong,
+  } = useAppContext();
+
+  useEffect(() => {
+    if (isPlaying) {
+      audio.current.play();
+    } else {
+      audio.current.pause();
+    }
+  }, [isPlaying]);
+
+  const handlePrevSong = () => {
+    prevSong();
+  };
+
+  const handleNextSong = () => {
+    nextSong();
+  };
 
   return (
     <div className="h-24 bg-gradient-to-b from-black to-gray-900 text-white grid grid-cols-3 text-xs md:text-base px-2 md:px-8">
-      {/* left */}
       <div className="flex items-center space-x-4">
-        <Image src={imgPlayList} height={40} width={40} alt="" />
+        {currentSong && (
+          <img
+            src={currentSong?.links.images[0].url}
+            alt=""
+            className="w-10 h-10 object-cover"
+          />
+        )}
 
         <div>
-          <p>Take me to your heart</p>
-          <p>Taylor</p>
+          <p>{currentSong?.name || ''}</p>
+          <p>{currentSong?.author || ''}</p>
         </div>
       </div>
 
-      {/* center */}
       <div className="flex items-center justify-evenly">
-        <SwitchHorizontalIcon className="button" />
-        <RewindIcon className="button" />
+        {!isShuffle ? (
+          <SwitchHorizontalIcon
+            className="button"
+            onClick={() => setIsShuffle(!isShuffle)}
+          />
+        ) : (
+          <BiShuffle
+            className="button"
+            onClick={() => setIsShuffle(!isShuffle)}
+          />
+        )}
+        <RewindIcon className="button" onClick={handlePrevSong} />
 
         {isPlaying === true ? (
           <PauseIcon
@@ -48,11 +85,10 @@ export const Audio = () => {
           />
         )}
 
-        <FastForwardIcon className="button" />
-        <ReplyIcon className="button" />
+        <FastForwardIcon className="button" onClick={handleNextSong} />
+        {/* <ReplyIcon className="button" /> */}
       </div>
 
-      {/* right */}
       <div className="flex items-center space-x-3 md:space-x-4 justify-end pr-5">
         <VolumeUpIcon className="button" />
         <input
@@ -65,13 +101,7 @@ export const Audio = () => {
         />
         <VolumeOffIcon className="button" />
       </div>
-
-      {/* <AudioPlayer
-        autoPlay
-        src="https://audioplayer.madza.dev/Madza-Chords_of_Life.mp3"
-        onPlay={(e) => console.log('onPlay')}
-        // other props here
-      /> */}
+      <audio src={currentSong?.url || ''} ref={audio} autoPlay />
     </div>
   );
 };

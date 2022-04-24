@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Song } from './song';
+import songsData from '@data/songs.json';
+import { ISong } from '@domain/models/song';
 
 const tracks = [
   {
@@ -54,16 +56,20 @@ const tracks = [
 ];
 
 export const Songs = () => {
+  const [songs, setSongs] = useState<ISong[]>(songsData);
+
   return (
     <div className="text-white flex flex-col">
-      {tracks.map((track) => (
+      {songs.map((song, index) => (
         <Song
-          key={track.order}
-          order={track.order}
-          name={track.name}
-          artist={track.artist}
-          albumName={track.albumName}
-          duration={track.duration}
+          id={song.id}
+          key={song.id}
+          order={index + 1}
+          name={song.name}
+          author={song.author}
+          links={song.links}
+          image={song.links.images[0].url}
+          url={song.url}
         />
       ))}
     </div>

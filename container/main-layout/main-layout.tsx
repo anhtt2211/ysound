@@ -15,9 +15,11 @@ const MainLayout = ({ children }: LayoutType) => {
       <main className="flex">
         <Sidebar />
         <Content />
-        {/* <div>{children}</div> */}
       </main>
-      <div className="sticky bottom-0">
+      <div
+        style={{ position: 'sticky', bottom: '0' }}
+        // className="!sticky !bottom-0"
+      >
         <Audio />
       </div>
     </div>

@@ -1,32 +1,53 @@
+/* eslint-disable @next/next/no-img-element */
+import { useAppContext } from '@app/app-context';
+import { ILinks } from '@domain/models/song';
 import React from 'react';
-import imgPlayList from '@assets/images/img-playList.jpg';
-import Image from 'next/image';
 
 type Props = {
+  id: number;
   order: number;
   name: string;
-  artist: string;
-  albumName: string;
-  duration: string;
+  author: string;
+  albumName?: string;
+  duration?: string;
+  image?: string;
+  url: string;
+  links: ILinks;
 };
 
-export const Song = ({ order, name, artist, albumName, duration }: Props) => {
-  return (
-    <div className="grid grid-cols-2 text-gray-500 py-4 px-7 hover:bg-gray-900 rounded-lg cursor-pointer">
-      <div className="flex items-center space-x-5">
-        <p className="mr-4">{order}</p>
-        <Image src={imgPlayList} alt="" height={40} width={40} />
+export const Song = ({ order, name, author, image, url, links, id }: Props) => {
+  const { currentSong, setCurrentSong, setIsPlaying } = useAppContext();
 
-        <div>
-          <p className="w-36 lg:w-64 truncate text-white">{name}</p>
-          <p className="w-40">{artist}</p>
+  const onSongClick = () => {
+    setCurrentSong({
+      id,
+      name,
+      author,
+      image,
+      url,
+      links,
+    });
+    setIsPlaying(true);
+  };
+
+  return (
+    <>
+      <div
+        onClick={onSongClick}
+        className={`grid grid-cols-2 text-gray-500 py-4 px-7 hover:bg-gray-900 rounded-lg cursor-pointer ${
+          currentSong?.id === id ? '!bg-gray-900' : ''
+        }`}
+      >
+        <div className="flex items-center space-x-5">
+          <p className="mr-4">{order}</p>
+          <img src={image} alt="" className="w-10 h-10 object-cover" />
+
+          <div>
+            <p className="w-36 lg:w-64 truncate text-white">{name}</p>
+            <p className="w-40">{author}</p>
+          </div>
         </div>
       </div>
-
-      <div className="flex items-center justify-between ml-auto md:ml-0">
-        <p className="hidden md:inline w-40">{albumName}</p>
-        <p>{duration}</p>
-      </div>
-    </div>
+    </>
   );
 };
