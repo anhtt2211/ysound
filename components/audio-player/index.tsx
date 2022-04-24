@@ -25,7 +25,6 @@ export const Audio = () => {
     nextSong,
     prevSong,
   } = useAppContext();
-
   useEffect(() => {
     if (isPlaying) {
       audio.current.play();
@@ -33,7 +32,7 @@ export const Audio = () => {
       audio.current.pause();
     }
   }, [isPlaying]);
-
+  console.log(audio.current);
   const handlePrevSong = () => {
     prevSong();
   };
