@@ -11,7 +11,10 @@ type LayoutType = {
 
 const MainLayout = ({ children }: LayoutType) => {
   return (
-    <div className="bg-black h-screen overflow-hidden">
+    <div
+      className="!bg-black h-screen overflow-hidden"
+      style={{ backgroundColor: 'black' }}
+    >
       <main className="flex">
         <Sidebar />
         <Content />
