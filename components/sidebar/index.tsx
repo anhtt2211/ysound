@@ -52,7 +52,7 @@ export const Sidebar = () => {
   return (
     <div className="text-gray-500 p-5 text-xs lg:text-sm border-r border-gray-500 overflow-y-scroll h-screen scrollbar-hide hidden md:inline-flex">
       <div className="space-y-4">
-        <button className="flex items-center space-x-2 hover:text-white">
+        <button className="flex items-center space-x-2 hover:text-white" onClick={()=> dispatch(getPlayList(null))}>
           <HomeIcon className="h-5 w-5" />
           <p>Home</p>
         </button>
