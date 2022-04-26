@@ -16,6 +16,7 @@ import React, { useEffect, useRef, useState } from 'react';
 export const Audio = () => {
   const [volumn, setVolumn] = useState<number>(50);
   const audio = useRef<HTMLAudioElement>();
+  //const {getAudioDuration} = require('get-audio-duration')
   const {
     currentSong,
     isPlaying,
@@ -25,6 +26,10 @@ export const Audio = () => {
     nextSong,
     prevSong,
   } = useAppContext();
+  // const fs = require('fs')
+  // const stream = fs.createReadStream(currentSong?.url)
+  // getAudioDuration(stream).then((duration) => {console.log(duration)});
+  console.log("1:" + currentSong?currentSong:null);
   useEffect(() => {
     if (isPlaying) {
       audio.current.play();
@@ -32,11 +37,10 @@ export const Audio = () => {
       audio.current.pause();
     }
   }, [isPlaying]);
-  console.log(audio.current);
+
   const handlePrevSong = () => {
     prevSong();
   };
-
   const handleNextSong = () => {
     nextSong();
   };
@@ -89,7 +93,7 @@ export const Audio = () => {
       </div>
 
       <div className="flex items-center space-x-3 md:space-x-4 justify-end pr-5">
-        <VolumeUpIcon className="button" />
+        <VolumeOffIcon className="button" />
         <input
           className="w-14 md:w-28"
           type="range"
@@ -98,7 +102,7 @@ export const Audio = () => {
           value={volumn}
           onChange={(e) => setVolumn(Number(e.target.value))}
         />
-        <VolumeOffIcon className="button" />
+        <VolumeUpIcon className="button" />
       </div>
       <audio src={currentSong?.url || ''} ref={audio} autoPlay />
     </div>
