@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Song } from './song';
 import songsData from '@data/songs.json';
 import { ISong } from '@domain/models/song';
+import { useAppSelector } from '@redux/hooks';
 
 const tracks = [
   {
@@ -57,6 +58,13 @@ const tracks = [
 
 export const Songs = () => {
   const [songs, setSongs] = useState<ISong[]>(songsData);
+  const { current } = useAppSelector((state) => state.playLists);
+
+  useEffect(() => {
+    current && setSongs(current.songs);
+  }, [current]);
+
+  console.log({ songs });
 
   return (
     <div className="text-white flex flex-col">

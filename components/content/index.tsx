@@ -5,6 +5,7 @@ import { ChevronDownIcon } from '@heroicons/react/outline';
 import { shuffle } from 'lodash';
 import imgPlayList from '@assets/images/img-playList.jpg';
 import { Songs } from '@components/songs';
+import { useAppSelector } from '@redux/hooks';
 
 const colors = [
   'from-indigo-500',
@@ -18,6 +19,7 @@ const colors = [
 
 export const Content = () => {
   const [color, setColor] = useState<string>();
+  const { current } = useAppSelector((state) => state.playLists);
 
   useEffect(() => {
     setColor(shuffle(colors).pop());
@@ -42,17 +44,18 @@ export const Content = () => {
       <section
         className={`flex items-end space-x-7 bg-gradient-to-b to-black ${color} h-80 text-white p-8 w-full`}
       >
-        <Image
+        {/* <Image
           src={imgPlayList}
           alt=""
           width={232}
           height={232}
           objectFit="cover"
-        />
+        /> */}
+        <img src={current?.image} alt="" className="w-56 h-56 object-cover" />
         <div>
           <p>PLAYLIST</p>
           <h1 className="text-2xl md:text-3xl xl:text-5xl font-bold">
-            Study with me
+            {current?.name}
           </h1>
         </div>
       </section>

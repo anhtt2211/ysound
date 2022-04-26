@@ -7,39 +7,48 @@ import {
   HeartIcon,
   RssIcon,
 } from '@heroicons/react/outline';
-
-const playLists = [
-  {
-    id: '1',
-    name: 'Study with me',
-  },
-  {
-    id: '2',
-    name: 'Calm before the Storm',
-  },
-  {
-    id: '3',
-    name: 'They move on Tracks of Never-Ending Light',
-  },
-  {
-    id: '4',
-    name: 'You & me',
-  },
-  {
-    id: '5',
-    name: 'Chill tracks',
-  },
-  {
-    id: '6',
-    name: 'Daily mix',
-  },
-  {
-    id: '7',
-    name: 'Điều buồn nhất',
-  },
-];
+import { playLists } from '@data/playlists';
+import { useAppDispatch } from '@redux/hooks';
+import { IPlayList } from '@domain/models/playlist';
+import { getPlayList } from '@redux/slices/play-list.slice';
+// const playLists = [
+//   {
+//     id: 1,
+//     name: 'Study with me',
+//   },
+//   {
+//     id: 2,
+//     name: 'Calm before the Storm',
+//   },
+//   {
+//     id: 3,
+//     name: 'They move on Tracks of Never-Ending Light',
+//   },
+//   {
+//     id: 4,
+//     name: 'You & me',
+//   },
+//   {
+//     id: 5,
+//     name: 'Chill tracks',
+//   },
+//   {
+//     id: 6,
+//     name: 'Daily mix',
+//   },
+//   {
+//     id: 7,
+//     name: 'Điều buồn nhất',
+//   },
+// ];
 
 export const Sidebar = () => {
+  const dispatch = useAppDispatch();
+
+  const onPlayListClick = (playList: IPlayList) => {
+    dispatch(getPlayList(playList));
+  };
+
   return (
     <div className="text-gray-500 p-5 text-xs lg:text-sm border-r border-gray-500 overflow-y-scroll h-screen scrollbar-hide hidden md:inline-flex">
       <div className="space-y-4">
@@ -77,7 +86,11 @@ export const Sidebar = () => {
 
         {/* play list */}
         {playLists.map((playList) => (
-          <p className="hover:text-white cursor-pointer" key={playList.id}>
+          <p
+            className="hover:text-white cursor-pointer"
+            key={playList.id}
+            onClick={() => onPlayListClick(playList)}
+          >
             {playList.name}
           </p>
         ))}
