@@ -26,7 +26,7 @@ export const Audio = () => {
     nextSong,
     prevSong,
   } = useAppContext();
-  console.log(currentSong.url+ " " +audio.current.duration);
+
   useEffect(() => {
     if (isPlaying) {
       audio.current.play();
