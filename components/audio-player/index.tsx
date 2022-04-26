@@ -17,6 +17,7 @@ export const Audio = () => {
   const [volumn, setVolumn] = useState<number>(50);
   const audio = useRef<HTMLAudioElement>();
   //const {getAudioDuration} = require('get-audio-duration')
+  
   const {
     currentSong,
     isPlaying,
