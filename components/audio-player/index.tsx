@@ -16,6 +16,7 @@ import React, { useEffect, useRef, useState } from 'react';
 export const Audio = () => {
   const [volumn, setVolumn] = useState<number>(50);
   const audio = useRef<HTMLAudioElement>();
+  //const {getAudioDuration} = require('get-audio-duration')
   
   const {
     currentSong,
@@ -26,7 +27,10 @@ export const Audio = () => {
     nextSong,
     prevSong,
   } = useAppContext();
-
+  // const fs = require('fs')
+  // const stream = fs.createReadStream(currentSong?.url)
+  // getAudioDuration(stream).then((duration) => {console.log(duration)});
+  console.log("1:" + currentSong?currentSong:null);
   useEffect(() => {
     if (isPlaying) {
       audio.current.play();
