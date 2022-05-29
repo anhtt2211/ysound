@@ -1,11 +1,11 @@
 {
-  "name": "Ylight Music",
+  "name": "YSound Music",
   "short_name": "YL Music",
   "theme_color": "#e91e63",
   "background_color": "#FFF",
   "display": "standalone",
   "orientation": "portrait",
-  "Scope": "https://ylight.xyz/",
+  "Scope": "https://ysound.vercel.app/",
   "start_url": "/",
   "icons": [
     {

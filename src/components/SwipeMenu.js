@@ -118,12 +118,6 @@ const SwipeMenu = () => {
             </ListItemIcon>
             <ListItemText primary="Feedback" />
           </ListItem>
-          <ListItem button component={Link} to="/donate">
-            <ListItemIcon>
-              <FreeBreakfast />
-            </ListItemIcon>
-            <ListItemText primary="Donate & Support" />
-          </ListItem>
           <ListItem button component={Link} to="/contributors">
             <ListItemIcon>
               <People />
@@ -134,7 +128,7 @@ const SwipeMenu = () => {
             button
             component={MaterialLink}
             target="blank"
-            href="https://github.com/ShivamJoker/Ylight-Music-Client"
+            href="https://github.com/anhtt2211/ysound"
           >
             <ListItemIcon>
               <svg

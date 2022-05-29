@@ -44,16 +44,16 @@ const LoginPage = ({ continueToHome }) => {
         align="center"
         style={{ padding: "10px" }}
       >
-        Listen to unlimited songs without any ads for free only on Ylight Music
+        Listen to unlimited songs without any ads for free only on YSound Music
       </Typography>
-      <img
+      {/* <img
         style={{
           width: "70vw",
           maxWidth: "350px"
         }}
         src={handcraftedText}
         alt="Handcrafted by Shivam"
-      />
+      /> */}
       <Button variant="outlined" color="primary" onClick={continueToHome}>
         Continue
         <NavigateNext />

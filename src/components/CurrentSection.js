@@ -19,10 +19,6 @@ import {
 import { GlobalContext } from './GlobalState';
 import SettingsPage from './sections/SettingsPage';
 
-
-
-
-
 // pages
 const LoginPage = lazy(() => import('./LoginPage'));
 const RenderDatabase = lazy(() => import('./RenderDatabase'));

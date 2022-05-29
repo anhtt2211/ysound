@@ -47,7 +47,7 @@ const TopBar = ({ song, player, setPlayerState, history }) => {
       navigator
         .share({
           title: "Share This Song",
-          text: `Hey Listen to ${song.title} on Ylight Music`,
+          text: `Hey Listen to ${song.title} on YSound Music`,
           url: window.location.href //get the current window url
         })
         .then(() => console.log("Successful share"))

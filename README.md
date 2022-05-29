@@ -1,8 +1,8 @@
 ## An open source progressive music app made with Javascript using ReactJS and Material-Ui
-![Ylight music app screenshots](https://i.imgur.com/DKTItwI.png)
+![YSound music app screenshots](https://i.imgur.com/DKTItwI.png)
 
 ## Maintainence Update
-I am sorry to announce that I am dropping support for ylight music
+I am sorry to announce that I am dropping support for ysound music
 I have just stopped my backend servers the front-end is still functional you can hook it up to any server.
 
 **Taking away music creators earning didn't seem like a right thing to do.**

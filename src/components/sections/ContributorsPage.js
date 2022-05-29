@@ -1,10 +1,12 @@
 import {
   Avatar,
-  Divider, Grid, Link, Typography
+  Grid, Link, Typography
 } from "@material-ui/core";
 import { pink } from "@material-ui/core/colors";
 import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
+import AnhTranAvatar from "../../images/anhtran-avatar.jpeg"
+import NgocLamAvatar from "../../images/ngoclam-avatar.jpg"
 
 const useStyles = makeStyles({
   avatar: {
@@ -41,10 +43,10 @@ const ContributorsPage = () => {
   return (
     <>
       <br />
-      <Grid container justify="center">
+      <Grid container alignItems="center" justify="center">
         <Grid
           component={Link}
-          href="https://github.com/shivamjoker"
+          href="https://github.com/anhtt2211"
           target="blank"
           container
           direction="column"
@@ -54,10 +56,10 @@ const ContributorsPage = () => {
         >
           <Avatar
             className={classes.avatar}
-            src="https://avatars2.githubusercontent.com/u/23727670?s=300"
+            src={AnhTranAvatar}
           />
-          <Typography variant="h5">Shivam</Typography>
-          <Typography>Creator of Ylight Music</Typography>
+          <Typography variant="h5">Anh Tran</Typography>
+          <Typography>Creator of YSound Music</Typography>
         </Grid>
 
         <Grid
@@ -66,37 +68,16 @@ const ContributorsPage = () => {
           alignItems="center"
           className={classes.avatatContainer}
           component={Link}
-          href="https://github.com/bushblade"
+          href="https://github.com/lamngok1201"
           target="blank"
           color="inherit"
         >
           <Avatar
             className={classes.avatar}
-            src="https://avatars2.githubusercontent.com/u/21976188?s=300"
+            src={NgocLamAvatar}
           />
-          <Typography variant="h5">Will Adams</Typography>
+          <Typography variant="h5">Ngoc Lam</Typography>
           <Typography>Helped in writing code</Typography>
-        </Grid>
-        <Divider className={classes.divider} />
-        <Typography variant="h5">Other Contributors</Typography>
-
-        <Grid container className={classes.miniContainer}>
-          <Grid container alignItems="center">
-            <Avatar>R</Avatar>
-            <Typography variant="h6">Razvan</Typography>
-          </Grid>
-          <Grid container alignItems="center">
-            <Avatar>S</Avatar>
-            <Typography variant="h6">Shantanu</Typography>
-          </Grid>
-          <Grid container alignItems="center">
-            <Avatar>P</Avatar>
-            <Typography variant="h6">Piyush</Typography>
-          </Grid>
-          <Grid container alignItems="center">
-            <Avatar>Z</Avatar>
-            <Typography variant="h6">Zaid</Typography>
-          </Grid>
         </Grid>
       </Grid>
     </>
