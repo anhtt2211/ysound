@@ -70,8 +70,8 @@ const PrivacyPage = () => {
         <Typography gutterBottom={true}>
           If you have any questions or suggestions about my Privacy Policy, do
           not hesitate to contact me at{" "}
-          <Link href="mailto:singhshivamkr@gmail.com" target="self">
-            singhshivamkr@gmail.com
+          <Link href="mailto:trananh22112001@gmail.com" target="self">
+            trananh22112001@gmail.com
           </Link>
         </Typography>
       </section>
